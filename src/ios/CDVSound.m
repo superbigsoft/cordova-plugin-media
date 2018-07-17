@@ -381,7 +381,7 @@ BOOL keepAvAudioSessionAlwaysActive = NO;
             if (!bError) {
                 NSLog(@"Playing audio sample '%@'", audioFile.resourcePath);
                 double duration = 0;
-                if (avPlayer.currentItem && avPlayer.currentItem.asset) {
+                if (audioFile.player == nil && avPlayer.currentItem && avPlayer.currentItem.asset) {
                     CMTime time = avPlayer.currentItem.asset.duration;
                     duration = CMTimeGetSeconds(time);
                     if (isnan(duration)) {
